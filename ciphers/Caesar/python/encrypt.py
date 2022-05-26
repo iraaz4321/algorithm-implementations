@@ -11,14 +11,13 @@
 
 # Import string build in library to get alphabet
 import string
-
+import math
 
 def caesar_encrypt(text: str, shift: int, alphabet: str = string.ascii_lowercase) -> str:
     result: str = ""
     alphabet_length: int = len(alphabet)
-    # if step is higher than the alphabet calculate the smallest possible step
-    while alphabet_length < shift:
-        shift -= alphabet_length
+    # calculate the smallest possible shift
+    shift = shift - alphabet_length * math.floor(shift / alphabet_length)
     for letter in text:
         # Check if shift would go over alphabet
         if alphabet_length - alphabet.find(letter) <= shift:
