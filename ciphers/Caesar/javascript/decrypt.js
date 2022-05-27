@@ -15,7 +15,7 @@
  * @param {int} shift - Caesar shift
  * @param {string} alphabet - Alphabet of caesar
  */
-function caesar_encrypt(input, shift, alphabet = "abcdefghijklmnopqrstuvwxyz") {
+function caesar_decrypt(input, shift, alphabet = "abcdefghijklmnopqrstuvwxyz") {
     var result = "";
     shift *= -1
     for (var i = 0; i < input.length; i++) {
@@ -30,4 +30,4 @@ function caesar_encrypt(input, shift, alphabet = "abcdefghijklmnopqrstuvwxyz") {
     return result;
 }
 
-console.log(caesar_encrypt("acd", 1));
+console.log(caesar_decrypt("acd", 1));
