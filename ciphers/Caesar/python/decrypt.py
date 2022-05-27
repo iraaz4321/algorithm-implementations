@@ -11,8 +11,6 @@
 
 # Import string build in library to get alphabet
 import string
-# Import math library for floor function
-import math
 
 def caesar_decrypt(text: str, shift: int, alphabet: str = string.ascii_lowercase) -> str:
     result: str = ""
