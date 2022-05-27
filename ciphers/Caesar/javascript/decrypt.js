@@ -16,19 +16,18 @@
  * @param {string} alphabet - Alphabet of caesar
  */
 function caesar_encrypt(input, shift, alphabet = "abcdefghijklmnopqrstuvwxyz") {
-    //Calculate the smallest possible shift
-    shift = shift - alphabet.length * Math.floor(shift / alphabet.length);
     var result = "";
+    shift *= -1
     for (var i = 0; i < input.length; i++) {
-        // If index would go negative start from end
-        if (alphabet.indexOf(input[i]) < shift) {
-            result += alphabet[(alphabet.length - alphabet.indexOf(input[i])) - shift];
+        index = (alphabet.indexOf(input[i])+shift) % alphabet.length
+        if (index < 0) {
+            result += alphabet[alphabet.length+index];
         }
         else {
-            result += alphabet[alphabet.indexOf(input[i]) - shift];
+            result += alphabet[index];
         }
     }
     return result;
 }
 
-console.log(caesar_encrypt("uryyb", 13));
+console.log(caesar_encrypt("acd", 1));

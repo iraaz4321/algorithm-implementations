@@ -17,15 +17,10 @@ import math
 def caesar_encrypt(text: str, shift: int, alphabet: str = string.ascii_lowercase) -> str:
     result: str = ""
     alphabet_length: int = len(alphabet)
-    # calculate the smallest possible shift
-    shift = shift - alphabet_length * math.floor(shift / alphabet_length)
     for letter in text:
-        # Check if shift would go over alphabet
-        if alphabet_length - alphabet.find(letter) <= shift:
-            result += alphabet[shift - (alphabet_length - alphabet.find(letter))]
-        else:
-            result += alphabet[alphabet.find(letter) + shift]
+        result += alphabet[(alphabet.find(letter) + shift) % alphabet_length]
     return result
+
 
 
 # Program entry point
