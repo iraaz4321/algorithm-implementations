@@ -22,8 +22,6 @@ def caesar_decrypt(text: str, shift: int, alphabet: str = string.ascii_lowercase
         result += alphabet[(alphabet.find(letter) + shift) % alphabet_length]
     return result
 
-
-
 # Program entry point
 if __name__ == '__main__':
     caesar_decrypt("hello", shift=13)
